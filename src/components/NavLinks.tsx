@@ -19,7 +19,7 @@ const NavLinks = async () => {
         <Link
           className="py-1 px-3 rounded-md font-semibold text-[10px] border border-transparent hover:border-stone-400 hover:bg-stone-300"
           key={item.id}
-          href={`${item.slug}`}
+          href={`/category/${item.slug}`}
         >
           <span>{item.icon}</span> {item.nameBn}
         </Link>

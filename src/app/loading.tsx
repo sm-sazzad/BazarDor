@@ -1,66 +1,77 @@
 export default function Loading() {
-  const skeletonCards = Array.from({ length: 6 });
-
   return (
-    <div className="min-h-screen bg-[#f4f9f4] p-4 md:p-8 font-sans">
-      <div className="max-w-7xl mx-auto space-y-12">
-        <section>
-          <div className="flex items-center gap-2 mb-6">
-            <div className="w-0 h-0 border-l-[10px] border-l-transparent border-b-[16px] border-b-red-300 border-r-[10px] border-r-transparent"></div>
-            <div className="h-7 w-48 bg-gray-300 rounded animate-pulse"></div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {skeletonCards.map((_, index) => (
-              <SkeletonCard key={index} trend="up" />
-            ))}
-          </div>
-        </section>
-
-        <section>
-          <div className="flex items-center gap-2 mb-6">
-            <div className="w-0 h-0 border-l-[10px] border-l-transparent border-t-[16px] border-t-green-300 border-r-[10px] border-r-transparent"></div>
-            <div className="h-7 w-48 bg-gray-300 rounded animate-pulse"></div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {skeletonCards.map((_, index) => (
-              <SkeletonCard key={index} trend="down" />
-            ))}
-          </div>
-        </section>
+    <div className="min-h-screen bg-[#f4f9f4] px-4 py-8 md:px-8 md:py-10">
+      <div className="mx-auto max-w-7xl space-y-14">
+        <PriceSection trend="up" />
+        <PriceSection trend="down" />
       </div>
     </div>
   );
 }
 
-function SkeletonCard({ trend }: { trend: "up" | "down" }) {
-  return (
-    <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm relative overflow-hidden w-[80%] mx-auto">
-      <div className="flex items-start gap-4 mb-4">
-        <div className="w-12 h-12 bg-gray-200 rounded-full animate-pulse shrink-0"></div>
+function PriceSection({ trend }: { trend: "up" | "down" }) {
+  const skeletonCards = Array.from({ length: 6 });
+  const isUp = trend === "up";
 
-        <div className="space-y-2 mt-1 flex-1">
-          <div className="h-5 w-24 bg-gray-300 rounded animate-pulse"></div>
-          <div className="h-3 w-16 bg-gray-200 rounded animate-pulse"></div>
+  return (
+    <section>
+      {/* Section Header */}
+      <div className="mb-6 flex items-center gap-3">
+        <div
+          className={`h-8 w-8 animate-pulse rounded-lg ${
+            isUp ? "bg-red-100" : "bg-green-100"
+          }`}
+        />
+
+        <div className="space-y-2">
+          <div className="h-6 w-44 animate-pulse rounded-md bg-gray-300" />
+          <div className="h-3 w-28 animate-pulse rounded bg-gray-200" />
         </div>
       </div>
 
-      <div className="flex items-end justify-between mt-6">
+      {/* Cards */}
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {skeletonCards.map((_, index) => (
+          <SkeletonCard key={index} trend={trend} />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function SkeletonCard({ trend }: { trend: "up" | "down" }) {
+  return (
+    <div className="relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
+      {/* Product Info */}
+      <div className="flex items-center gap-4">
+        <div className="h-14 w-14 shrink-0 animate-pulse rounded-xl bg-gray-200" />
+
+        <div className="min-w-0 flex-1 space-y-2">
+          <div className="h-5 w-28 animate-pulse rounded bg-gray-300" />
+          <div className="h-3 w-20 animate-pulse rounded bg-gray-200" />
+        </div>
+      </div>
+
+      {/* Divider */}
+      <div className="my-5 h-px bg-gray-100" />
+
+      {/* Price + Percentage */}
+      <div className="flex items-end justify-between gap-4">
         <div className="space-y-2">
-          <div className="h-3 w-20 bg-gray-200 rounded animate-pulse"></div>
-          <div className="h-7 w-28 bg-gray-300 rounded animate-pulse"></div>
+          <div className="h-3 w-16 animate-pulse rounded bg-gray-200" />
+          <div className="h-7 w-28 animate-pulse rounded bg-gray-300" />
         </div>
 
-        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-50 border border-gray-100">
+        <div className="flex items-center gap-2 rounded-lg border border-gray-100 bg-gray-50 px-3 py-2">
           <div
-            className={`w-0 h-0 border-l-[5px] border-l-transparent border-r-[5px] border-r-transparent ${
+            className={`h-0 w-0 border-l-[5px] border-r-[5px] border-l-transparent border-r-transparent ${
               trend === "up"
-                ? "border-b-[8px] border-b-gray-300"
-                : "border-t-[8px] border-t-gray-300"
+                ? "border-b-8 border-b-gray-300"
+                : "border-t-8 border-t-gray-300"
             }`}
-          ></div>
-          <div className="h-4 w-10 bg-gray-300 rounded animate-pulse"></div>
+          />
+
+          <div className="h-4 w-10 animate-pulse rounded bg-gray-300" />
         </div>
       </div>
     </div>
