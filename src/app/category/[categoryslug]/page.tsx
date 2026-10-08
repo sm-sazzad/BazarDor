@@ -1,4 +1,4 @@
-import CategoryContent from "@/app/product/[slug]/CategoryContent";
+import CategoryContent from "@/app/category/[categoryslug]/CategoryContent";
 
 export default async function Page({
   params,
