@@ -15,6 +15,22 @@ interface ProductPrice {
   };
 }
 
+const unitBn = {
+  kg: "কেজি",
+  gram: "গ্রাম",
+  litre: "লিটার",
+  liter: "লিটার",
+  ml: "মিলিলিটার",
+  piece: "টি",
+  pcs: "টি",
+  dozen: "ডজন",
+  ton: "টন",
+  maund: "মণ",
+  packet: "প্যাকেট",
+  bottle: "বোতল",
+  box: "বক্স",
+};
+
 const Marque = async () => {
   const res = await fetch(
     "https://api.api-store.workers.dev/api/bazardor/products",
@@ -33,14 +49,14 @@ const Marque = async () => {
             <div>
               {n.categoryIcon} {n.nameBn} {n.today.toLocaleString("bn-BD")}{" "}
               টাকা/
-              {n.unit}{" "}
+              {unitBn[n.unit as keyof typeof unitBn]}{" "}
             </div>
             {n.change.dir === "up" ? (
-              <div className="flex items-center justify-center mx-1 text-red-600">
+              <div className="flex items-center font-semibold justify-center mx-1 text-red-600">
                 <FaCaretUp /> {n.change.pct.toLocaleString("bn-BD")}%
               </div>
             ) : (
-              <div className="flex items-center justify-center mx-1 text-green-500">
+              <div className="flex items-center font-semibold justify-center mx-1 text-green-500">
                 <FaCaretDown />
                 {Math.abs(n.change.pct).toLocaleString("bn-BD")}%
               </div>
