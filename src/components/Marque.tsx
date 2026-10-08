@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Marquee from "react-fast-marquee";
 import { FaCaretDown, FaCaretUp } from "react-icons/fa";
-interface ProductPrice {
+export interface ProductPrice {
   id: number;
   slug: string;
   nameBn: string;
@@ -15,7 +15,7 @@ interface ProductPrice {
   };
 }
 
-const unitBn = {
+export const unitBn = {
   kg: "কেজি",
   gram: "গ্রাম",
   litre: "লিটার",
