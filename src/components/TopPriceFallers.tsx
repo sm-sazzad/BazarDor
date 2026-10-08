@@ -32,16 +32,18 @@ const TopPriceFallers = async () => {
                 </p>
               </div>
             </div>
-            <div className="flex justify-between items-center">
-              <div>
-                <p className="text-[11px] text-gray-600">আজকের দাম</p>
-                <p className=" font-bold">
-                  {item.today.toLocaleString("bn-BD")} টাকা
-                </p>
-              </div>
-              <div className="flex gap-1 text-[11px] items-center py-1 px-2 font-semibold rounded-full bg-gray-200 text-green-700">
-                <BiSolidDownArrow className="inline" />{" "}
-                {Math.abs(item.change.pct).toLocaleString("bn-BD")}%
+            <div>
+              <p className="text-[11px] text-gray-600">আজকের দাম</p>
+              <div className="flex justify-between items-center">
+                <div>
+                  <p className="font-bold">
+                    {item.today.toLocaleString("bn-BD")} টাকা
+                  </p>
+                </div>
+                <div className="flex gap-1 text-[11px] items-center py-1 px-2 font-semibold rounded-full bg-gray-200 text-green-700">
+                  <BiSolidDownArrow className="inline" />{" "}
+                  {Math.abs(item.change.pct).toLocaleString("bn-BD")}%
+                </div>
               </div>
             </div>
           </div>

@@ -1,8 +1,9 @@
 import Hero from "@/components/Hero";
 import TopPriceFallers from "@/components/TopPriceFallers";
 import TopPriceRisers from "@/components/TopPriceRisers";
-import React, { Suspense } from "react";
+import { Suspense } from "react";
 import Loading from "./loading";
+import AllProduct from "@/components/AllProduct";
 
 const page = () => {
   return (
@@ -11,6 +12,7 @@ const page = () => {
       <Suspense fallback={<Loading />}>
         <TopPriceRisers />
         <TopPriceFallers />
+        <AllProduct />
       </Suspense>
     </div>
   );
