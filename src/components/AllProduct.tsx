@@ -5,18 +5,22 @@ import Link from "next/link";
 
 const AllProduct = async () => {
   const res = await fetch(
-    "https://api.api-store.workers.dev/api/bazardor/products",
+    // "https://api.api-store.workers.dev/api/bazardor/products",
+    "https://api.abcz.workers.dev/api/bazardor/products",
   );
   const resData: ProductPrice[] = await res.json();
   return (
-    <div id="allProduct" className="w-[80%] mx-auto my-10 scroll-mt-28">
+    <div
+      id="allProduct"
+      className="w-[90%] sm:w-[80%] mx-auto my-10 scroll-mt-28"
+    >
       <div>
         <h1 className="text-2xl font-bold">সব পণ্য</h1>
         <p className="text-[12px] text-gray-600 my-3">
           মোট {resData.length.toLocaleString("bn-BD")} টি পণ্য দেখানো হচ্ছে
         </p>
       </div>
-      <div className="grid grid-cols-3 gap-4 my-4">
+      <div className="grid grid-cols-1 min-[500]:grid-cols-2 md:grid-cols-3 gap-4 my-4">
         {resData.map((item) => (
           <Link key={item.id} href={`/product/${item.id}`}>
             <div className="cursor-pointer border border-gray-300 hover:border-green-700 hover:shadow-md duration-300 rounded-xl p-3 bg-[#fafcfa] space-y-2">

@@ -25,7 +25,8 @@ export interface Details {
 const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;
   const res = await fetch(
-    `https://api.api-store.workers.dev/api/bazardor/products/${slug}`,
+    // `https://api.api-store.workers.dev/api/bazardor/products/${slug}`,
+    `https://api.abcz.workers.dev/api/bazardor/products/${slug}`,
   );
   const resData: Details = await res.json();
 
@@ -33,7 +34,7 @@ const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const max = Math.max(...resData.markets.map((n) => n.max));
 
   return (
-    <div className="w-[80%] mx-auto my-10">
+    <div className="w-[90%] sm:w-[80%] mx-auto my-10">
       <div className="mb-3 text-[14px]">
         <Link className="hover:underline" href={"/"}>
           হোম
@@ -48,7 +49,7 @@ const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
         <RiArrowDropRightLine className="inline" />{" "}
         <span>{resData.nameBn}</span>
       </div>
-      <div className="flex justify-between items-center bg-white border border-stone-300 rounded-xl py-5 px-5">
+      <div className="flex flex-col gap-5 sm:gap-0 sm:flex-row justify-between sm:items-center bg-white border border-stone-300 rounded-xl py-5 px-5">
         <div className="flex items-center gap-3">
           <h1 className="text-4xl py-5 px-4 rounded-xl bg-gray-100">
             {resData.categoryIcon}
@@ -110,7 +111,7 @@ const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
       </div>
       <div className="border border-gray-300 bg-white my-5 p-4 rounded-xl">
         <h1 className="font-bold text-xl my-2">দামের সারসংক্ষেপ</h1>
-        <div className="grid grid-cols-3 gap-2 justify-between">
+        <div className="grid grid-cols-1 min-[500]:grid-cols-2 md:grid-cols-3 gap-2 justify-between">
           <div className="border border-gray-200 bg-gray-50 p-4 rounded-xl">
             <p className="text-[13px] text-gray-600">সর্বনিম্ন দাম</p>
             <h1 className="font-bold text-xl text-green-700">

@@ -6,7 +6,7 @@ interface tabledataProps {
 const Table = ({ tabledata }: tabledataProps) => {
   return (
     <div
-      className={`rounded-xl border border-gray-300 overflow-hidden `}
+      className={`rounded-xl border border-gray-300 overflow-hidden overflow-x-auto sm:overflow-x-visible`}
       style={{ fontFamily: "var(--font-anekBangla)" }}
     >
       <table className="w-full text-left border-collapse px-2 text-gray-600">

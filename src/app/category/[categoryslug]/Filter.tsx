@@ -26,13 +26,14 @@ const Filter = ({ resData }: Props) => {
 
   return (
     <>
-      <div className="flex justify-between">
+      <div className="min-[500]:flex items-center justify-between">
         <h1>
           মোট {resData.length.toLocaleString("bn-Bd")}টি পণ্য দেখানো হচ্ছে
         </h1>
         <div className="flex gap-3 items-center">
           <h1>সাজান</h1>
           <select
+            className="border rounded-sm"
             defaultValue={"default"}
             onChange={(e) => setFilter(e.target.value as string)}
           >
@@ -42,7 +43,7 @@ const Filter = ({ resData }: Props) => {
           </select>
         </div>
       </div>
-      <div className="grid grid-cols-3 gap-4 my-4">
+      <div className="grid grid-cols-1 min-[500]:grid-cols-2 md:grid-cols-3 gap-4 my-4">
         {sortedData.map((item) => (
           <Link key={item.id} href={`/product/${item.id}`}>
             <div className="cursor-pointer border border-gray-300 hover:border-green-700 hover:shadow-md duration-300 rounded-xl p-3 bg-[#fafcfa] space-y-2">

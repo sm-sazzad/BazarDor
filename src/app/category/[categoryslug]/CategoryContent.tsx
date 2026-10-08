@@ -6,7 +6,8 @@ import Filter from "./Filter";
 
 const CategoryContent = async ({ categoryslug }: { categoryslug: string }) => {
   const res = await fetch(
-    `https://api.api-store.workers.dev/api/bazardor/products?category=${categoryslug}`,
+    // `https://api.api-store.workers.dev/api/bazardor/products?category=${categoryslug}`,
+    `https://api.abcz.workers.dev/api/bazardor/products?category=${categoryslug}`,
   );
   const resData: ProductPrice[] = await res.json();
 

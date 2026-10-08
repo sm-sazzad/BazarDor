@@ -4,7 +4,8 @@ import Link from "next/link";
 
 const TopPriceFallers = async () => {
   const res = await fetch(
-    "https://api.api-store.workers.dev/api/bazardor/products",
+    // "https://api.api-store.workers.dev/api/bazardor/products",
+    "https://api.abcz.workers.dev/api/bazardor/products",
   );
   const resData: ProductPrice[] = await res.json();
   const PriceDown = resData
@@ -12,11 +13,11 @@ const TopPriceFallers = async () => {
     .sort((a, b) => a.change.pct - b.change.pct);
 
   return (
-    <div className="w-[80%] mx-auto">
+    <div className="w-[90%] sm:w-[80%] mx-auto">
       <div className="flex items-center gap-2 font-bold">
         <BiSolidDownArrow className="inline text-green-700" /> আজ দাম কমেছে
       </div>
-      <div className="grid grid-cols-3 gap-4 my-4">
+      <div className="grid grid-cols-1 min-[500]:grid-cols-2 md:grid-cols-3 gap-4 my-4">
         {PriceDown.slice(0, 6).map((item) => (
           <Link key={item.id} href={`/product/${item.id}`}>
             <div className="cursor-pointer border border-gray-300 hover:border-green-700 hover:shadow-md duration-300 rounded-xl p-3 bg-[#fafcfa] space-y-2">
