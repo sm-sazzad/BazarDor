@@ -1,12 +1,45 @@
+import { signIn } from "@/lib/auth-client";
 import React from "react";
+import toast from "react-hot-toast";
 
 const SocialSignIn = () => {
+  const handleGoogleLogin = async () => {
+    const { data, error } = await signIn.social({
+      provider: "google",
+      callbackURL: "/",
+    });
+
+    if (error) {
+      toast.error(error.message || "গুগল দিয়ে লগইন করতে সমস্যা হয়েছে।");
+    }
+
+    if (data) {
+      toast.success("গুগল দিয়ে সফলভাবে লগইন হয়েছে।");
+    }
+  };
+
+  const handleGithubLogin = async () => {
+    const { data, error } = await signIn.social({
+      provider: "github",
+      callbackURL: "/",
+    });
+
+    if (error) {
+      toast.error(error.message || "গিটহাব দিয়ে লগইন করতে সমস্যা হয়েছে।");
+    }
+    if (data) {
+      toast.success("গিটহাব দিয়ে সফলভাবে লগইন হয়েছে।");
+    }
+  };
   return (
     <div>
       {/* Social Login Buttons */}
       <div className="grid grid-cols-2 gap-3 mb-6">
         {/* Google Button */}
-        <button className="flex items-center justify-center gap-2 border border-gray-300 rounded-lg py-2.5 hover:bg-gray-50 transition-colors">
+        <button
+          onClick={handleGoogleLogin}
+          className="flex items-center justify-center gap-2 border border-gray-300 rounded-lg py-2.5 hover:bg-gray-50 transition-colors"
+        >
           {/* Google SVG Icon */}
           <svg className="w-5 h-5" viewBox="0 0 24 24">
             <path
@@ -34,7 +67,10 @@ const SocialSignIn = () => {
         </button>
 
         {/* GitHub Button */}
-        <button className="flex items-center justify-center gap-2 border border-gray-300 rounded-lg py-2.5 hover:bg-gray-50 transition-colors">
+        <button
+          onClick={handleGithubLogin}
+          className="flex items-center justify-center gap-2 border border-gray-300 rounded-lg py-2.5 hover:bg-gray-50 transition-colors"
+        >
           {/* GitHub SVG Icon */}
           <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
             <path

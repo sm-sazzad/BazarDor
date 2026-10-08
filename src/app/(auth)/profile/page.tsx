@@ -1,5 +1,6 @@
 "use client";
-import { signOut, useSession } from "@/lib/auth-client";
+import { signOut, updateUser, useSession } from "@/lib/auth-client";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
@@ -19,6 +20,25 @@ const Profile = () => {
       },
     });
   };
+
+  const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const userData = Object.fromEntries(formData.entries());
+
+    const { data, error } = await updateUser({
+      name: String(userData.name),
+    });
+
+    if (error) {
+      toast.error("নাম পরিবর্তন করতে সমস্যা হয়েছে।");
+    }
+
+    if (data) {
+      toast.success("নাম সফলভাবে পরিবর্তন হয়েছে।");
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#f4f9f4] p-4 md:p-8 font-sans flex justify-center">
       <div className="w-full max-w-2xl space-y-6">
@@ -32,9 +52,23 @@ const Profile = () => {
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
           <div className="flex flex-col md:flex-row justify-center items-center gap-6">
             {/* Avatar */}
-            <span className="h-20 w-20 rounded-full text-3xl font-bold text-white bg-[#0d7a3e] flex items-center justify-center shrink-0 shadow-md">
-              {session?.user?.name ? session.user.name.split("")[0] : "U"}
-            </span>
+            {session?.user?.image ? (
+              <>
+                <Image
+                  className="h-20 w-20 rounded-full p-px ring-2 ring-green-600"
+                  src={session?.user?.image}
+                  alt="profile"
+                  width={100}
+                  height={100}
+                />
+              </>
+            ) : (
+              <>
+                <span className="h-20 w-20 rounded-full text-3xl font-bold text-white bg-[#0d7a3e] flex items-center justify-center shrink-0 shadow-md">
+                  {session?.user?.name ? session.user.name.split("")[0] : "U"}
+                </span>
+              </>
+            )}
 
             {/* User Details */}
             <div className="flex-1 text-center md:text-left space-y-1">
@@ -63,7 +97,7 @@ const Profile = () => {
             নাম হালনাগাদ করুন
           </h2>
 
-          <form className="space-y-5">
+          <form onSubmit={handleSubmit} className="space-y-5">
             <div>
               <label
                 htmlFor="name"
@@ -82,7 +116,7 @@ const Profile = () => {
 
             <button
               type="submit"
-              className="w-full md:w-auto bg-[#0d7a3e] hover:bg-[#0a6332] text-white font-semibold py-3 px-8 rounded-lg transition-colors shadow-sm"
+              className="w-full cursor-pointer md:w-auto bg-[#0d7a3e] hover:bg-[#0a6332] text-white font-semibold py-3 px-8 rounded-lg transition-colors shadow-sm"
             >
               নাম হালনাগাদ করুন
             </button>
