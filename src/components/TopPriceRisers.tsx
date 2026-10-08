@@ -1,4 +1,3 @@
-import React from "react";
 import { BiSolidUpArrow, BiUpArrow } from "react-icons/bi";
 import { ProductPrice, unitBn } from "./Marque";
 
@@ -12,7 +11,7 @@ const TopPriceRisers = async () => {
     .sort((a, b) => b.change.pct - a.change.pct);
 
   return (
-    <div className="w-[80%] mx-auto">
+    <div className="w-[80%] mx-auto my-10">
       <div className="flex items-center gap-2 font-bold">
         <BiSolidUpArrow className="inline text-red-600" /> আজ দাম বেড়েছে
       </div>
@@ -20,7 +19,7 @@ const TopPriceRisers = async () => {
         {PriceUp.slice(0, 6).map((item) => (
           <div
             key={item.id}
-            className="cursor-pointer border border-gray-300 hover:border-green-700 rounded-xl p-3 bg-[#fafcfa] space-y-2"
+            className="cursor-pointer border border-gray-300 hover:border-green-700 hover:shadow-md duration-300 rounded-xl p-3 bg-[#fafcfa] space-y-2"
           >
             <div className="flex gap-2">
               <div className="p-1 bg-stone-100 rounded-xl text-2xl">
