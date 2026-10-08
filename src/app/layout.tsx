@@ -1,13 +1,23 @@
 import type { Metadata } from "next";
-import { Hind_Siliguri } from "next/font/google";
+import {
+  Anek_Bangla,
+  Hind_Siliguri,
+  Noto_Sans_Bengali,
+} from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const hindSiliguri = Hind_Siliguri({
+const anekBangla = Anek_Bangla({
   subsets: ["bengali"],
-  variable: "--font-hind-siliguri",
+  variable: "--font-anekBangla",
   weight: ["300", "400", "500", "600", "700"],
+});
+
+const notoSansBengali = Noto_Sans_Bengali({
+  subsets: ["bengali"],
+  variable: "--font-noto-bengali",
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -17,10 +27,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${hindSiliguri.className} h-full antialiased`}>
+    <html
+      lang="en"
+      className={`${anekBangla.className} ${notoSansBengali.variable} h-full antialiased`}
+    >
       <body className="min-h-full flex flex-col bg-[#f0f5f0]">
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 scroll-mt-50">{children}</main>
         <Footer />
       </body>
     </html>

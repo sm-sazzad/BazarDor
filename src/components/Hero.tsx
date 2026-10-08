@@ -16,9 +16,11 @@ const Hero = () => {
           চাল, ডাল, তেল, সবজি, মাছ, মাংস, ডিম ও মসলার দাম — বাজারভিত্তিক
           বিস্তারিত, গড়, সর্বনিম্ন-সর্বাধিক এবং দামের পরিবর্তন এক জায়গায়।
         </p>
-        <button className="bg-[#047c37] cursor-pointer text-white px-2 py-1.5 rounded-md text-sm">
-          সব পণ্য দেখুন
-        </button>
+        <a href="#allProduct">
+          <button className="bg-[#047c37] cursor-pointer text-white px-2 py-1.5 rounded-md text-sm">
+            সব পণ্য দেখুন
+          </button>
+        </a>
       </div>
       <div className="justify-self-end">
         <Image className="" src={banner} alt="BazarDor" />

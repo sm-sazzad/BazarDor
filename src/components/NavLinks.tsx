@@ -17,7 +17,7 @@ const NavLinks = async () => {
     <div className="flex gap-1 py-2 w-[80%] mx-auto">
       {resData.map((item) => (
         <Link
-          className="py-1 px-3 rounded-md font-semibold text-[10px] border border-transparent hover:border-stone-400 hover:bg-stone-300"
+          className="py-1 px-3 rounded-md font-semibold text-[12px] border border-transparent hover:border-stone-400 hover:bg-stone-300"
           key={item.id}
           href={`/category/${item.slug}`}
         >

@@ -39,7 +39,7 @@ const Marque = async () => {
   const resData: ProductPrice[] = await res.json();
   //   console.log(resData);
   return (
-    <Marquee speed={100}>
+    <Marquee speed={100} pauseOnHover>
       {resData.map((n) => (
         <Link className={`inline-block `} key={n.id} href={`/product/${n.id}`}>
           <div className="flex text-[13px] text-stone-600">

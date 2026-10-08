@@ -1,4 +1,3 @@
-import React from "react";
 import { Details } from "./page";
 interface tabledataProps {
   tabledata: Details;
@@ -6,7 +5,10 @@ interface tabledataProps {
 
 const Table = ({ tabledata }: tabledataProps) => {
   return (
-    <div className="rounded-xl border overflow-hidden">
+    <div
+      className={`rounded-xl border border-gray-300 overflow-hidden `}
+      style={{ fontFamily: "var(--font-anekBangla)" }}
+    >
       <table className="w-full text-left border-collapse px-2 text-gray-600">
         <thead className="border-b px-2">
           <tr className="px-30 ">
