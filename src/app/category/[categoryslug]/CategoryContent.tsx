@@ -17,11 +17,13 @@ const CategoryContent = async ({ categoryslug }: { categoryslug: string }) => {
 
   return (
     <div className="w-[80%] mx-auto my-10 space-y-5">
-      <div className="flex items-center  bg-[#fafcfa] shadow border border-stone-300 p-3 rounded-2xl">
+      <div className="flex items-center  bg-[#fafcfa] shadow border border-stone-300 p-3 py-6 rounded-2xl">
         <div className="p-2 rounded-xl text-4xl">{resData[0].categoryIcon}</div>
         <div>
-          <h1 className="font-bold">{resData[0].categoryNameBn}</h1>
-          <p className="text-sm text-stone-600">
+          <h1 className="font-bold text-xl sm:text-3xl">
+            {resData[0].categoryNameBn}
+          </h1>
+          <p className="text-md text-stone-600">
             {resData.length.toLocaleString("bn-BD")} টি পণ্যের আজকের দাম ও
             পরিবর্তন
           </p>

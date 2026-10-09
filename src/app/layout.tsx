@@ -15,7 +15,7 @@ const anekBangla = Anek_Bangla({
   weight: ["300", "400", "500", "600", "700"],
 });
 
-const notoSansBengali = Noto_Sans_Bengali({
+const hind_Siliguri = Hind_Siliguri({
   subsets: ["bengali"],
   variable: "--font-noto-bengali",
   weight: ["400", "500", "600", "700"],
@@ -31,7 +31,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${anekBangla.className} ${notoSansBengali.variable} h-full antialiased`}
+      className={`${hind_Siliguri.className} ${anekBangla.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#f0f5f0]">
         <Navbar />

@@ -1,20 +1,35 @@
 import { BiSolidDownArrow, BiSolidUpArrow, BiUpArrow } from "react-icons/bi";
 import { ProductPrice, unitBn } from "./Marque";
 import Link from "next/link";
+import SectionError from "./SectionError";
 
 const TopPriceFallers = async () => {
   const res = await fetch(
     // "https://api.api-store.workers.dev/api/bazardor/products",
     "https://api.abcz.workers.dev/api/bazardor/products",
   );
+
+  if (!res.ok) {
+    return (
+      <SectionError message="কোনো পণ্য পাওয়া যায়নি" msg="আজ দাম কমেছে" />
+    );
+  }
+
   const resData: ProductPrice[] = await res.json();
+
+  if (!resData || resData.length === 0) {
+    return (
+      <SectionError message="কোনো পণ্য পাওয়া যায়নি" msg="আজ দাম কমেছে" />
+    );
+  }
+
   const PriceDown = resData
     .filter((n) => n.change.dir === "down")
     .sort((a, b) => a.change.pct - b.change.pct);
 
   return (
     <div className="w-[90%] sm:w-[80%] mx-auto">
-      <div className="flex items-center gap-2 font-bold">
+      <div className="flex items-center gap-2 font-bold text-2xl">
         <BiSolidDownArrow className="inline text-green-700" /> আজ দাম কমেছে
       </div>
       <div className="grid grid-cols-1 min-[500]:grid-cols-2 md:grid-cols-3 gap-4 my-4">
@@ -22,26 +37,26 @@ const TopPriceFallers = async () => {
           <Link key={item.id} href={`/product/${item.id}`}>
             <div className="cursor-pointer border border-gray-300 hover:border-green-700 hover:shadow-md duration-300 rounded-xl p-3 bg-[#fafcfa] space-y-2">
               <div className="flex gap-2">
-                <div className="p-1 bg-stone-100 rounded-xl text-2xl">
+                <div className="p-1 bg-stone-100 rounded-xl text-3xl">
                   {item.image}
                 </div>
                 <div>
-                  <h1 className="text-md font-semibold">{item.nameBn}</h1>
-                  <p className="text-[11px] text-gray-600">
+                  <h1 className="text-xl font-semibold">{item.nameBn}</h1>
+                  <p className="text-[14px] text-gray-600">
                     প্রতি {unitBn[item.unit as keyof typeof unitBn]}
                   </p>
                 </div>
               </div>
               <div>
-                <p className="text-[11px] text-gray-600">আজকের দাম</p>
+                <p className="text-[14px] text-gray-600">আজকের দাম</p>
                 <div className="flex justify-between items-center">
                   <div>
-                    <p className="font-bold">
+                    <p className="text-2xl font-bold">
                       {item.today.toLocaleString("bn-BD")}{" "}
                       <span className="font-normal text-sm">টাকা</span>
                     </p>
                   </div>
-                  <div className="flex gap-1 text-[11px] items-center py-1 px-2 font-semibold rounded-full bg-gray-200 text-green-700">
+                  <div className="flex gap-1 text-[14px] items-center py-1 px-2 font-semibold rounded-full bg-gray-200 text-green-700">
                     <BiSolidDownArrow className="inline" />{" "}
                     {Math.abs(item.change.pct).toLocaleString("bn-BD")}%
                   </div>

@@ -39,7 +39,7 @@ const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
 
   return (
     <div className="w-[90%] sm:w-[80%] mx-auto my-10">
-      <div className="mb-3 text-[14px]">
+      <div className="mb-3 text-[16px]">
         <Link className="hover:underline" href={"/"}>
           হোম
         </Link>{" "}
@@ -59,11 +59,11 @@ const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
             {resData.image}
           </h1>
           <div>
-            <h1 className="text-2xl font-bold">{resData.nameBn}</h1>
-            <p className="text-[13px] text-gray-600">
+            <h1 className="text-xl sm:text-3xl font-bold">{resData.nameBn}</h1>
+            <p className="text-[14px] text-gray-600">
               প্রতি কেজি {resData.categoryNameBn}
             </p>
-            <p className="text-[13px] mt-2 text-gray-600">
+            <p className="text-[14px] mt-2 text-gray-600">
               গতকালের তুলনায় আজ দাম{" "}
               <span>
                 {resData.change.dir === "up" ? (
@@ -86,15 +86,15 @@ const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
           </div>
         </div>
         <div className="py-3 px-5 text-center bg-gray-100 rounded-xl">
-          <p className="text-[13px] text-gray-600">আজকের দাম</p>
-          <h1 className="font-bold text-2xl">
+          <p className="text-[15px] text-gray-600">আজকের দাম</p>
+          <h1 className="font-bold text-3xl">
             {resData.today.toLocaleString("bn-BD")}
           </h1>
-          <p className="text-[13px] text-gray-600">
+          <p className="text-[15px] text-gray-600">
             টাকা / {unitBn[resData.unit as keyof typeof unitBn]}
           </p>
           <span
-            className={`text-[14px] ${resData.change.dir === "up" ? "text-red-700" : resData.change.dir === "down" ? "text-green-700" : "text-black"}`}
+            className={`text-[15px] ${resData.change.dir === "up" ? "text-red-700" : resData.change.dir === "down" ? "text-green-700" : "text-black"}`}
           >
             {resData.change.dir === "down" ? (
               <>
@@ -114,36 +114,36 @@ const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
         </div>
       </div>
       <div className="border border-gray-300 bg-white my-5 p-4 rounded-xl">
-        <h1 className="font-bold text-xl my-2">দামের সারসংক্ষেপ</h1>
+        <h1 className="font-bold text-2xl my-2">দামের সারসংক্ষেপ</h1>
         <div className="grid grid-cols-1 min-[500]:grid-cols-2 md:grid-cols-3 gap-2 justify-between">
           <div className="border border-gray-200 bg-gray-50 p-4 rounded-xl">
-            <p className="text-[13px] text-gray-600">সর্বনিম্ন দাম</p>
-            <h1 className="font-bold text-xl text-green-700">
+            <p className="text-[15px] text-gray-600">সর্বনিম্ন দাম</p>
+            <h1 className="font-bold text-3xl text-green-700">
               {min.toLocaleString("bn-BD")}{" "}
               <span className="font-normal text-sm">টাকা</span>
             </h1>
-            <p className="text-[13px] text-gray-600">সবচেয়ে কম দামের বাজার</p>
+            <p className="text-[15px] text-gray-600">সবচেয়ে কম দামের বাজার</p>
           </div>
           <div className="border border-gray-200 bg-gray-50 p-4 rounded-xl">
-            <p className="text-[13px] text-gray-600">সর্বাধিক দাম</p>
-            <h1 className="font-bold text-xl text-red-700">
+            <p className="text-[15px] text-gray-600">সর্বাধিক দাম</p>
+            <h1 className="font-bold text-3xl text-red-700">
               {max.toLocaleString("bn-BD")}{" "}
               <span className="font-normal text-sm">টাকা</span>
             </h1>
-            <p className="text-[13px] text-gray-600">
+            <p className="text-[15px] text-gray-600">
               সবচেয়ে বেশি দামের বাজার
             </p>
           </div>
           <div className="border border-gray-200 bg-gray-50 p-4 rounded-xl">
-            <p className="text-[13px] text-gray-600">গড় দাম</p>
-            <h1 className="font-bold text-xl text-green-700">
+            <p className="text-[15px] text-gray-600">গড় দাম</p>
+            <h1 className="font-bold text-3xl text-green-700">
               {((min + max) / 2).toLocaleString("bn-BD")}{" "}
               <span className="font-normal text-sm">টাকা</span>
             </h1>
-            <p className="text-[13px] text-gray-600">প্রতি কেজি-এর হিসাবে</p>
+            <p className="text-[15px] text-gray-600">প্রতি কেজি-এর হিসাবে</p>
           </div>
         </div>
-        <h1 className="font-bold text-xl my-5">বাজারভিত্তিক আজকের দাম</h1>
+        <h1 className="font-bold text-2xl my-5">বাজারভিত্তিক আজকের দাম</h1>
         <div>
           <Table tabledata={resData} />
         </div>
@@ -152,7 +152,7 @@ const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
         <Link href={`/category/${resData.category}`}>
           <button className="py-1 px-3 bg-stone-200 rounded-xl border border-gray-500 cursor-pointer">
             {resData.categoryIcon}{" "}
-            <span className="text-[13px]">সব {resData.categoryNameBn}</span>
+            <span className="text-[14px]">সব {resData.categoryNameBn}</span>
           </button>
         </Link>
       </div>

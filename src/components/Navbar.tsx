@@ -12,10 +12,14 @@ const Navbar = () => {
           <nav className="relative flex justify-between items-center w-[95%] sm:w-[80%] mx-auto py-2">
             <Link href={"/"}>
               <div className="flex gap-2 items-center justify-center">
-                <div className="p-1.5 rounded-xl bg-[#047c37]">🛒</div>
+                <div className="p-1.5 text-xl sm:text-2xl rounded-xl bg-[#047c37]">
+                  🛒
+                </div>
                 <div>
-                  <h1 className="font-bold text-xl">বাজার দর</h1>
-                  <p className="text-[10px] text-stone-500">{todaydate}</p>
+                  <h1 className="font-bold text-2xl sm:text-3xl">বাজার দর</h1>
+                  <p className="text-[10px] sm:text-[13px] text-stone-500">
+                    {todaydate}
+                  </p>
                 </div>
               </div>
             </Link>

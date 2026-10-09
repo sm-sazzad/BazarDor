@@ -38,13 +38,30 @@ const Marque = async () => {
     // "https://api.api-store.workers.dev/api/bazardor/products",
     "https://api.abcz.workers.dev/api/bazardor/products",
   );
+
+  if (!res.ok) {
+    return (
+      <div className="text-center">
+        দুঃখিত! এই মুহূর্তে কোনো পণ্য পাওয়া যায়নি।
+      </div>
+    );
+  }
+
   const resData: ProductPrice[] = await res.json();
-  //   console.log(resData);
+
+  if (!resData || resData.length === 0) {
+    return (
+      <div className="text-center">
+        দুঃখিত! এই মুহূর্তে কোনো পণ্য পাওয়া যায়নি।
+      </div>
+    );
+  }
+
   return (
     <Marquee speed={100} pauseOnHover>
       {resData.map((n) => (
         <Link className={`inline-block `} key={n.id} href={`/product/${n.id}`}>
-          <div className="flex text-[13px] text-stone-600">
+          <div className="flex text-[16px] text-stone-600">
             <div>
               {n.categoryIcon} {n.nameBn} {n.today.toLocaleString("bn-BD")}{" "}
               টাকা/

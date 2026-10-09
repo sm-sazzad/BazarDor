@@ -40,7 +40,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#f4f9f4] p-4 md:p-8 font-sans flex justify-center">
+    <div className="min-h-screen bg-[#f4f9f4] p-4 md:p-8 flex justify-center">
       <div className="w-full max-w-2xl space-y-6">
         <div className="text-center md:text-left mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">

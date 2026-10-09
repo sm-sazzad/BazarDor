@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { CiLogout } from "react-icons/ci";
-import { FaAngleDown, FaUser } from "react-icons/fa";
+import { FaAngleDown, FaAngleUp, FaUser } from "react-icons/fa";
 
 const SignUpIn = () => {
   const router = useRouter();
@@ -41,10 +41,10 @@ const SignUpIn = () => {
               onClick={() => setIsOpen(!isOpen)}
               className="flex items-center gap-2"
             >
-              <span className="h-8 w-8 rounded-full text-xl text-white bg-green-700 flex items-center justify-center">
+              <span className="h-10 w-10 rounded-full text-xl text-white bg-green-700 flex items-center justify-center">
                 {session?.user?.image ? (
                   <Image
-                    className="inset-0 rounded-full h-8 w-8 ring ring-green-700 p-px"
+                    className="inset-0 rounded-full h-10 w-10 ring ring-green-700 p-px"
                     src={session?.user?.image}
                     alt="U"
                     height={20}
@@ -54,21 +54,27 @@ const SignUpIn = () => {
                   session?.user?.name.split("")[0]
                 )}
               </span>
-              <span>{session?.user?.name}</span>
+              <span className="text-[13px] hidden min-[400]:block sm:text-lg ">
+                {session?.user?.name}
+              </span>
               <span>
-                <FaAngleDown className="inline" />
+                <FaAngleDown
+                  className={`inline transition-transform duration-300 ${
+                    isOpen ? "rotate-180" : "rotate-0"
+                  }`}
+                />
               </span>
             </div>
           </>
         ) : (
           <>
             <Link href={"/sign-in"}>
-              <button className="px-2 py-1.5 rounded-md text-sm cursor-pointer">
+              <button className="px-2 py-1.5 rounded-md text-lg cursor-pointer">
                 সাইন ইন
               </button>
             </Link>
             <Link href={"/sign-up"}>
-              <button className="bg-[#047c37] cursor-pointer text-white px-2 py-1.5 rounded-md text-sm">
+              <button className="bg-[#047c37] cursor-pointer text-white px-2 py-1.5 rounded-lg text-md">
                 সাইন আপ
               </button>
             </Link>
@@ -76,13 +82,13 @@ const SignUpIn = () => {
         )}
       </div>
       <div
-        className={`${isOpen ? "block" : "hidden"} absolute right-0 top-13 bg-white border border-gray-200 text-[14px] p-3 rounded-2xl text-start`}
+        className={`${isOpen ? "block" : "hidden"} absolute right-0 top-14 bg-white border border-gray-200 text-[15px] sm:text-[20px] p-3 rounded-2xl text-start`}
       >
         {
           <>
             <div aria-disabled className="text-gray-500">
               <h1>{session?.user?.name}</h1>
-              <p className="text-[10px]">{session?.user?.email}</p>
+              <p className="text-[15px]">{session?.user?.email}</p>
             </div>
             <div>
               <span className="flex items-center gap-2 p-1 hover:bg-gray-100 rounded-xl hover:translate-x-1">
