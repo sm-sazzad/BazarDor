@@ -28,7 +28,7 @@ const NavLinks = () => {
   }, []);
 
   return (
-    <div className="flex gap-1 py-2 w-[95%] sm:w-[80%] overflow-x-auto sm:overflow-x-visible mx-auto">
+    <div className="flex gap-1 py-2 w-[95%] sm:w-[80%] overflow-x-auto md:overflow-x-visible mx-auto">
       {navlink.length > 0 &&
         navlink.map((item) => (
           <Link

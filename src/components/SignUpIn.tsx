@@ -69,12 +69,12 @@ const SignUpIn = () => {
         ) : (
           <>
             <Link href={"/sign-in"}>
-              <button className="px-2 py-1.5 rounded-md text-lg cursor-pointer">
+              <button className="px-2 py-1.5 rounded-md text-sm sm:text-lg cursor-pointer">
                 সাইন ইন
               </button>
             </Link>
             <Link href={"/sign-up"}>
-              <button className="bg-[#047c37] cursor-pointer text-white px-2 py-1.5 rounded-lg text-md">
+              <button className="bg-[#047c37] cursor-pointer text-white px-2 py-1.5 rounded-lg text-sm sm:text-lg">
                 সাইন আপ
               </button>
             </Link>
