@@ -19,7 +19,7 @@ const Hero = () => {
           বিস্তারিত, গড়, সর্বনিম্ন-সর্বাধিক এবং দামের পরিবর্তন এক জায়গায়।
         </p>
         <a href="#allProduct">
-          <button className="bg-[#047c37] cursor-pointer text-white px-2 py-1.5 rounded-md text-sm sm:text-md">
+          <button className="bg-[#047c37] cursor-pointer text-white px-2 py-1.5 rounded-md text-sm sm:text-lg">
             সব পণ্য দেখুন
           </button>
         </a>
