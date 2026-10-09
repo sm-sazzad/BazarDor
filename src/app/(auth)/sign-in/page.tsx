@@ -31,7 +31,7 @@ export default function SignInPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f4f9f4] flex flex-col items-center justify-center p-4 font-sans">
+    <div className="min-h-screen bg-[#f4f9f4] flex flex-col items-center justify-center p-4">
       {/* Top Text Section */}
       <div className="text-center mb-6">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">সাইন ইন</h1>
@@ -80,7 +80,7 @@ export default function SignInPage() {
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-[#0d7a3e] hover:bg-[#0a6332] text-white font-semibold py-3.5 rounded-lg transition-colors mt-2"
+            className="w-full cursor-pointer bg-[#0d7a3e] hover:bg-[#0a6332] text-white font-semibold py-3.5 rounded-lg transition-colors mt-2"
           >
             সাইন ইন
           </button>

@@ -4,6 +4,7 @@ import { TfiLayoutLineSolid } from "react-icons/tfi";
 import Table from "./Table";
 import Link from "next/link";
 import { RiArrowDropRightLine } from "react-icons/ri";
+import { notFound } from "next/navigation";
 
 export interface Details {
   id: number;
@@ -28,6 +29,9 @@ const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
     // `https://api.api-store.workers.dev/api/bazardor/products/${slug}`,
     `https://api.abcz.workers.dev/api/bazardor/products/${slug}`,
   );
+  if (!res.ok) {
+    notFound();
+  }
   const resData: Details = await res.json();
 
   const min = Math.min(...resData.markets.map((n) => n.min));
@@ -52,7 +56,7 @@ const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
       <div className="flex flex-col gap-5 sm:gap-0 sm:flex-row justify-between sm:items-center bg-white border border-stone-300 rounded-xl py-5 px-5">
         <div className="flex items-center gap-3">
           <h1 className="text-4xl py-5 px-4 rounded-xl bg-gray-100">
-            {resData.categoryIcon}
+            {resData.image}
           </h1>
           <div>
             <h1 className="text-2xl font-bold">{resData.nameBn}</h1>

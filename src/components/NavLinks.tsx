@@ -1,4 +1,7 @@
+"use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 interface INav {
   id: string;
@@ -7,18 +10,24 @@ interface INav {
   icon: string;
 }
 
-const NavLinks = async () => {
-  const res = await fetch(
-    // "https://api.api-store.workers.dev/api/bazardor/categories",
-    "https://api.abcz.workers.dev/api/bazardor/categories",
-  );
-  const resData: INav[] = await res.json();
+const NavLinks = () => {
+  const [navlink, setNavlink] = useState<INav[]>([]);
+  const pathName = usePathname();
+
+  useEffect(() => {
+    fetch(
+      // "https://api.api-store.workers.dev/api/bazardor/categories",
+      "https://api.abcz.workers.dev/api/bazardor/categories",
+    )
+      .then((resData) => resData.json())
+      .then((data) => setNavlink(data));
+  }, []);
 
   return (
     <div className="flex gap-1 py-2 w-[95%] sm:w-[80%] overflow-x-auto sm:overflow-x-visible mx-auto">
-      {resData.map((item) => (
+      {navlink.map((item) => (
         <Link
-          className="py-1 px-3 text-nowrap rounded-md font-semibold text-[12px] border border-transparent hover:border-stone-400 hover:bg-stone-300"
+          className={`${pathName === `/category/${item.slug}` ? "bg-green-700 text-white" : "hover:bg-stone-300"} py-1 px-3 text-nowrap rounded-md font-semibold text-[12px] border border-transparent hover:border-stone-400`}
           key={item.id}
           href={`/category/${item.slug}`}
         >

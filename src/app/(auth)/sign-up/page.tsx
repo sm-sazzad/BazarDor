@@ -1,6 +1,6 @@
 "use client";
 import SocialSignIn from "@/components/SocialSignIn";
-import { signUp } from "@/lib/auth-client";
+import { signOut, signUp } from "@/lib/auth-client";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import React from "react";
@@ -22,11 +22,13 @@ export default function SignUpPage() {
 
     if (data) {
       toast.success("অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে।");
-      redirect("/");
+      toast("অনুগ্রহ করে সাইন ইন করুন।");
+      signOut();
+      redirect("/sign-in");
     }
   };
   return (
-    <div className="min-h-screen bg-[#f4f9f4] flex flex-col items-center justify-center p-4 py-12 font-sans">
+    <div className="min-h-screen bg-[#f4f9f4] flex flex-col items-center justify-center p-4 py-12">
       {/* Top Text Section */}
       <div className="text-center mb-6">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">
@@ -110,7 +112,7 @@ export default function SignUpPage() {
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-[#0d7a3e] hover:bg-[#0a6332] text-white font-semibold py-3.5 rounded-lg transition-colors mt-4"
+            className="w-full cursor-pointer bg-[#0d7a3e] hover:bg-[#0a6332] text-white font-semibold py-3.5 rounded-lg transition-colors mt-4"
           >
             অ্যাকাউন্ট তৈরি করুন
           </button>

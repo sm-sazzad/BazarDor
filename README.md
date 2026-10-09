@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛒 বাজার দর | BazarDor
 
-## Getting Started
+**BazarDor** is a Bengali-language web application that helps users explore the latest market prices of essential commodities in Bangladesh. It allows users to check product prices, compare price changes, and stay informed about daily market rates through a simple and user-friendly interface.
 
-First, run the development server:
+## 🌐 Live Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+🔗 **Live Website:** [BazarDor](https://bazar-dor-sm-sazzad.vercel.app/)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Technologies Used
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Next.js** — React framework for building the web application
+- **TypeScript** — Type-safe JavaScript development
+- **Tailwind CSS** — Responsive and modern UI styling
+- **Better Auth** — User authentication and account management
+- **React Hot Toast** — Notifications
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ✨ Key Features
 
-## Learn More
+1. **📊 Daily Market Prices** — Browse the latest prices of essential products.
+2. **🔍 Category-Based Browsing** — Explore products by categories such as rice, vegetables, fish, meat, and other daily necessities.
+3. **📈 Price Comparison** — Compare current prices with previous prices to understand market trends.
+4. **↕️ Price Sorting** — Sort products by price from low to high or high to low.
+5. **🔐 User Authentication** — Sign up, sign in, and manage user accounts securely.
 
-To learn more about Next.js, take a look at the following resources:
+## 💻 Getting Started
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Prerequisites
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Node.js
+- npm, yarn, pnpm, or bun
 
-## Deploy on Vercel
+### Installation
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Clone the repository:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```bash
+   git clone https://github.com/sm-sazzad/BazarDor.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd BazarDor
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Open http://localhost:3000 in your browser.
+
+## 📁 Project Status
+
+BazarDor is a web development project focused on making daily market price information accessible to users in Bangladesh.
+
+## 👨‍💻 Author
+
+Sazzad Hossain
+
+GitHub: [sm-sazzad](https://github.com/sm-sazzad)
+LinkedIn: [sm-sazzad](https://linkedin.com/in/sm-sazzad/)
+
+Developed with ❤️ using Next.js and TypeScript.
+
+---
+
+**বাজার দর — প্রতিদিনের বাজারদর, হাতের নাগালে।**

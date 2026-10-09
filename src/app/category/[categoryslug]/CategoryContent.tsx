@@ -1,15 +1,19 @@
 import { ProductPrice, unitBn } from "@/components/Marque";
-import Link from "next/link";
-import { BiSolidDownArrow, BiSolidUpArrow } from "react-icons/bi";
-import { TfiLayoutLineSolid } from "react-icons/tfi";
 import Filter from "./Filter";
+import { notFound } from "next/navigation";
 
 const CategoryContent = async ({ categoryslug }: { categoryslug: string }) => {
   const res = await fetch(
     // `https://api.api-store.workers.dev/api/bazardor/products?category=${categoryslug}`,
     `https://api.abcz.workers.dev/api/bazardor/products?category=${categoryslug}`,
   );
+  if (!res.ok) {
+    return notFound();
+  }
   const resData: ProductPrice[] = await res.json();
+  if (resData.length === 0) {
+    notFound();
+  }
 
   return (
     <div className="w-[80%] mx-auto my-10 space-y-5">

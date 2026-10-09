@@ -1,5 +1,6 @@
 "use client";
 import { signOut, useSession } from "@/lib/auth-client";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -41,7 +42,17 @@ const SignUpIn = () => {
               className="flex items-center gap-2"
             >
               <span className="h-8 w-8 rounded-full text-xl text-white bg-green-700 flex items-center justify-center">
-                {session?.user?.name.split("")[0]}
+                {session?.user?.image ? (
+                  <Image
+                    className="inset-0 rounded-full h-8 w-8 ring ring-green-700 p-px"
+                    src={session?.user?.image}
+                    alt="U"
+                    height={20}
+                    width={20}
+                  />
+                ) : (
+                  session?.user?.name.split("")[0]
+                )}
               </span>
               <span>{session?.user?.name}</span>
               <span>

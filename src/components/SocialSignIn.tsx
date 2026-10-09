@@ -38,7 +38,7 @@ const SocialSignIn = () => {
         {/* Google Button */}
         <button
           onClick={handleGoogleLogin}
-          className="flex items-center justify-center gap-2 border border-gray-300 rounded-lg py-2.5 hover:bg-gray-50 transition-colors"
+          className="flex cursor-pointer items-center justify-center gap-0 sm:gap-2 border border-gray-300 rounded-lg py-2.5 hover:bg-gray-50 transition-colors"
         >
           {/* Google SVG Icon */}
           <svg className="w-5 h-5" viewBox="0 0 24 24">
@@ -60,16 +60,14 @@ const SocialSignIn = () => {
             />
           </svg>
           <span className="text-sm font-medium text-gray-700 text-center leading-tight">
-            Google দিয়ে
-            <br />
-            চালিয়ে যান
+            Google দিয়ে চালিয়ে যান
           </span>
         </button>
 
         {/* GitHub Button */}
         <button
           onClick={handleGithubLogin}
-          className="flex items-center justify-center gap-2 border border-gray-300 rounded-lg py-2.5 hover:bg-gray-50 transition-colors"
+          className="flex cursor-pointer items-center justify-center gap-2 border border-gray-300 rounded-lg py-2.5 hover:bg-gray-50 transition-colors"
         >
           {/* GitHub SVG Icon */}
           <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
@@ -80,9 +78,7 @@ const SocialSignIn = () => {
             />
           </svg>
           <span className="text-sm font-medium text-gray-700 text-center leading-tight">
-            GitHub দিয়ে
-            <br />
-            চালিয়ে যান
+            GitHub দিয়ে চালিয়ে যান
           </span>
         </button>
       </div>

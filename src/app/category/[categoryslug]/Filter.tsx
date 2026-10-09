@@ -49,7 +49,7 @@ const Filter = ({ resData }: Props) => {
             <div className="cursor-pointer border border-gray-300 hover:border-green-700 hover:shadow-md duration-300 rounded-xl p-3 bg-[#fafcfa] space-y-2">
               <div className="flex gap-2">
                 <div className="p-1 bg-stone-100 rounded-xl text-2xl">
-                  {item.categoryIcon}
+                  {item.image}
                 </div>
                 <div>
                   <h1 className="text-md font-semibold">{item.nameBn}</h1>

@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     <div className="py-5 bg-white border-t border-t-gray-300">
-      <div className="flex flex-col min-[750]:flex-row justify-between items-center w-[80%] mx-auto">
+      <div className="flex flex-col min-[750]:flex-row text-center justify-between items-center w-[80%] mx-auto">
         <p className="text-[13px] text-gray-600">
           বাজার দর — প্রয়োজনীয় পণ্যের দাম এক নজরে।
         </p>

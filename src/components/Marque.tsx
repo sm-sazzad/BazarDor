@@ -10,6 +10,7 @@ export interface ProductPrice {
   categoryIcon: string;
   unit: string;
   today: number;
+  image: string;
   change: {
     dir: "up" | "down";
     pct: number;
